@@ -188,6 +188,17 @@ function CalculRentalPrice(rental) {
     //console.log("deductible_option ",deductible_option);
 
     cars.forEach(function(value){
+//EXERCICE 2 - Drive more, pay less --- BEGINNING
+        if (Time>1 && Time<4){
+            value.pricePerDay = value.pricePerDay - ((value.pricePerDay * 10) / 100);
+        }
+        else if (Time>=4 && Time<10){
+            value.pricePerDay = value.pricePerDay - ((value.pricePerDay * 30) / 100);
+        }
+        else if (Time>=10){
+            value.pricePerDay = value.pricePerDay - ((value.pricePerDay * 50) / 100);
+        }
+//EXERCICE 2 - Drive more, pay less --- ENDING
 
         if (value.id == carId){
             var rentalPrice = (value.pricePerDay * Time)  + (entry.distance * value.pricePerKm);
