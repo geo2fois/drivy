@@ -183,9 +183,7 @@ function CalculRentalPrice(rental) {
     var Time = CalculTime(entry);
     console.log("Time :", Time);
     var carId = entry.carId;
- //   var deductible_option = entry.options.deductibleReduction;
     var reduction = 0;
-    //console.log("deductible_option ",deductible_option);
 
     cars.forEach(function(value){
 //EXERCICE 2 - Drive more, pay less --- BEGINNING
@@ -205,6 +203,8 @@ function CalculRentalPrice(rental) {
             console.log("The rental price is ", rentalPrice);
 
 
+
+
 //EXERCICE 3 - - Give me all your money
         var commission = rentalPrice * 0.3;
         var insurance = commission * 0.5;
@@ -214,6 +214,16 @@ function CalculRentalPrice(rental) {
         console.log("insurance:", insurance);
         console.log("roadside assistance:", roadside_assistance);
         console.log("drivy:", drivy);
+
+//EXERCICE 4 - The famous deductible --- BEGINNING
+        var priceAddition = 0;
+        if (entry.options.deductibleReduction){
+            console.log("Option: yes");
+            var priceAddition = Time * 4;
+            console.log("Price addition:", priceAddition);
+        }
+//EXERCICE 4 - The famous deductible --- ENDING
+
        }
 
     });
