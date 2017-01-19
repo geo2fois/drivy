@@ -205,7 +205,7 @@ function CalculRentalPrice(rental) {
 
 
 
-//EXERCICE 3 - - Give me all your money
+//EXERCICE 3 -  Give me all your money
         var commission = rentalPrice * 0.3;
         var insurance = commission * 0.5;
         var roadside_assistance = 1 * Time;
@@ -223,6 +223,49 @@ function CalculRentalPrice(rental) {
             console.log("Price addition:", priceAddition);
         }
 //EXERCICE 4 - The famous deductible --- ENDING
+
+//EXERCICE 5 - Pay the actors
+         actors.forEach(function(actor){
+            if (actor.rentalId == entry.id){
+                for (var i = 0; i < 5; i++){
+                    //driver due
+                    if (actor.payment[i].who == "driver"){
+                        var Driverdue = priceAddition + rentalPrice;
+                        console.log("Driver due :", Driverdue);
+                        actor.payment[i].amount = Driverdue;
+                    }
+
+                    //owner's payment
+                    if (actor.payment[i].who =="owner"){
+                        var Ownercredit = rentalPrice - commission;
+                        console.log("Payment for the car owner :", Ownercredit);
+                        actor.payment[i].amount = Ownercredit;
+                    }
+
+                    // insurance's payment
+                    if (actor.payment[i].who == "insurance"){
+                        var Insurancepayment = insurance;
+                        console.log("Payment for the insurance :", Insurancepayment);
+                        actor.payment[i].amount = Insurancepayment;
+                    }
+
+                    // assistance's payment
+                    if (actor.payment[i].who == "assistance"){
+                        var Assistancepayment = roadside_assistance;
+                        console.log("Payment for the car assistance :", Assistancepayment);
+                        actor.payment[i].amount = Assistancepayment;
+                    }
+
+                    // drivy's payment
+                    if (actor.payment[i].who == "assistance"){
+                        var Drivypayment = drivy + priceAddition;
+                        console.log("Payment for drivy :", Drivypayment);
+                        actor.payment[i].amount = Drivypayment;
+                      }
+                    }
+                  }
+
+         });
 
        }
 
