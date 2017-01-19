@@ -204,6 +204,16 @@ function CalculRentalPrice(rental) {
             var rentalPrice = (value.pricePerDay * Time)  + (entry.distance * value.pricePerKm);
             console.log("The rental price is ", rentalPrice);
 
+
+//EXERCICE 3 - - Give me all your money
+        var commission = rentalPrice * 0.3;
+        var insurance = commission * 0.5;
+        var roadside_assistance = 1 * Time;
+        var drivy = commission - insurance - roadside_assistance;
+        console.log("commission:", commission);
+        console.log("insurance:", insurance);
+        console.log("roadside assistance:", roadside_assistance);
+        console.log("drivy:", drivy);
        }
 
     });
